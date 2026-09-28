@@ -343,7 +343,7 @@ body.menu-open .menu-panel__nav a:nth-child(6) {
 .hero__title {
   margin: 0;
   max-width: 780px;
-  font: 400 96px/0.96 var(--font-display);
+  font: 400 80px/1.06 var(--font-display);
   letter-spacing: -0.045em;
 }
 
@@ -367,6 +367,8 @@ body.menu-open .menu-panel__nav a:nth-child(6) {
 }
 .hero__title-accent {
   color: var(--color-accent);
+  margin-top: 20px;
+  display: inline-block;
 }
 .hero__lead {
   max-width: 590px;
@@ -539,7 +541,7 @@ body.menu-open .menu-panel__nav a:nth-child(6) {
   }
   .hero__stats {
     order: 3;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
     padding-inline: 56px;
   }
@@ -669,10 +671,12 @@ body.menu-open .menu-panel__nav a:nth-child(6) {
 }
 
 #mentoring .section-title {
-  font-size: 45px;
+  font-size: 42px;
 }
 .text-accent {
   color: var(--color-accent);
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .section-text {
@@ -1233,12 +1237,12 @@ body.menu-open .menu-panel__nav a:nth-child(6) {
 
 .services__cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 14px;
 }
 
 .service-card {
-  min-height: 440px;
+  min-height: 400px;
   padding: 34px;
   display: flex;
   flex-direction: column;
@@ -3979,4 +3983,23 @@ body {
 
 body {
   overflow-x: hidden;
+}
+
+.results__clients {
+  align-self: flex-start;
+  margin: 72px 0 -140px 5%;
+  position: relative;
+  z-index: 2;
+
+  color: var(--color-accent);
+  font: 400 20px/1 var(--font-ui);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+@media (max-width: 620px) {
+  .results__clients {
+    align-self: flex-start;
+    margin: 40px 0 0;
+    font-size: 14px;
+  }
 }
