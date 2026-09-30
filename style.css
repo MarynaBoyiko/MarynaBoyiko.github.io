@@ -541,7 +541,7 @@ body.menu-open .menu-panel__nav a:nth-child(6) {
   }
   .hero__stats {
     order: 3;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     width: 100%;
     padding-inline: 56px;
   }
