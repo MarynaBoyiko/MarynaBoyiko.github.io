@@ -875,7 +875,8 @@ body.menu-open .menu-panel__nav a:nth-child(6) {
 .marquee__track {
   width: max-content;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: flex-end;
   animation: marqueeMove 28s linear infinite;
 }
 .marquee__content {
@@ -895,8 +896,11 @@ body.menu-open .menu-panel__nav a:nth-child(6) {
   font-style: normal;
 }
 @keyframes marqueeMove {
-  to {
+  from {
     transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
 
@@ -1400,7 +1404,7 @@ body.menu-open .menu-panel__nav a:nth-child(6) {
 
 .service-modal__title {
   margin: 0;
-  font: 400 52px/1.1 var(--font-display);
+  font: 400 45px/1.1 var(--font-display);
   letter-spacing: -0.04em;
 }
 
@@ -1517,7 +1521,7 @@ body.modal-open {
   }
 
   .service-modal__title {
-    font-size: 38px;
+    font-size: 26px;
   }
 }
 .results {
@@ -2529,7 +2533,7 @@ body.modal-open {
 
   .camp__title {
     gap: 12px;
-    font-size: 43px;
+    font-size: 25px;
     line-height: 1;
   }
 
@@ -3518,14 +3522,11 @@ body.modal-open {
 .footer-marquee {
   width: 110%;
   height: 70px;
-  margin-left: -5%;
-  margin-bottom: -35px;
   position: relative;
   z-index: 10;
   overflow: hidden;
   background: #a9c6e5;
   color: var(--color-text);
-  transform: rotate(-2deg);
   transform-origin: center;
 }
 
@@ -3561,11 +3562,11 @@ body.modal-open {
 
 @keyframes footerMarqueeMove {
   from {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
 }
 
@@ -3774,9 +3775,6 @@ body.modal-open {
   .footer-marquee {
     width: 118%;
     height: 58px;
-    margin-left: -9%;
-    margin-bottom: -29px;
-    transform: rotate(-4deg);
   }
 
   .footer-marquee__group span {
@@ -3904,13 +3902,11 @@ body.modal-open {
 .footer-marquee {
   width: 100%;
   height: 70px;
-  margin-bottom: -35px;
   position: relative;
   z-index: 10;
   overflow: hidden;
   background: #a9c6e5;
   color: var(--color-text);
-  transform: rotate(-2deg);
   transform-origin: center;
 }
 
@@ -3947,11 +3943,11 @@ body.modal-open {
 
 @keyframes footerMarqueeMove {
   from {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
 }
 @media (max-width: 620px) {
@@ -3959,8 +3955,6 @@ body.modal-open {
     width: 100%;
     height: 58px;
     margin-left: 0;
-    margin-bottom: -29px;
-    transform: rotate(-2.5deg);
   }
 
   .footer-marquee__group span {
@@ -4001,5 +3995,52 @@ body {
     align-self: flex-start;
     margin: 40px 0 0;
     font-size: 14px;
+  }
+}
+
+/* Subtle emphasis for service prices */
+.service-card__pricing {
+  margin-top: 20px;
+  padding: 16px 18px;
+  border-left: 2px solid var(--color-accent);
+  background: rgba(95, 143, 195, 0.07);
+}
+.service-card__pricing-label {
+  margin: 0 0 10px;
+  font: 600 11px/1.4 var(--font-ui);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.service-card__pricing-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0;
+  padding: 8px 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.service-card__pricing-row + .service-card__pricing-row {
+  border-top: 1px solid var(--color-line);
+}
+.service-card__pricing-row strong {
+  flex-shrink: 0;
+  font: 600 15px/1.4 var(--font-ui);
+  white-space: nowrap;
+}
+.service-modal__block--pricing {
+  padding: 16px 18px;
+  border-left: 2px solid var(--color-accent);
+  background: rgba(95, 143, 195, 0.07);
+}
+.service-modal__block--pricing li {
+  font-weight: 600;
+}
+@media (max-width: 480px) {
+  .service-card__pricing-row {
+    flex-wrap: wrap;
+    gap: 2px 12px;
   }
 }

@@ -134,6 +134,13 @@ const serviceData = {
           "Берете відповідальність за власні рішення без постійного страху помилитися",
         ],
       },
+      {
+        title: "Вартість",
+        items: [
+          "1 сесія — 1 800 грн",
+          "Пакет з 8 сесій — 12 000 грн",
+        ],
+      },
     ],
   },
 
@@ -180,24 +187,31 @@ const serviceData = {
           "Маєте конкретні наступні кроки замість відчуття хаосу",
         ],
       },
+      {
+        title: "Вартість",
+        items: [
+          "4 зустрічі, 1 місяць фідбеку та підтримки — 10 000 грн",
+          "8 зустрічей, 2 місяці фідбеку та підтримки — 19 000 грн",
+        ],
+      },
     ],
   },
 
   training: {
     eyebrow: "Тренінги та воркшопи",
     title: "Навички, які працюють на практиці",
-    lead: "Практичні навчальні формати для експертів, команд, дітей і підлітків із фокусом на комунікації, проявленості та розвитку.",
+    lead: "Розробляю та проводжу тренінги й воркшопи для бізнесу, команд, громадських організацій і освітніх проєктів. Допомагаю розвивати комунікацію, посилювати особистий бренд, впевнено презентувати себе та свої ідеї й перетворювати знання на практичні навички.",
     blocks: [
       {
-        title: "Теми",
+        title: "Теми навчання",
         items: [
-          "Розвиток особистого бренду та позиціонування через особистість",
-          "Контент",
-          "Самопрезентація",
-          "Лідерство для підлітків",
-          "Медіаграмотність",
-          "Розвиток soft skills для дітей і підлітків",
-          "Професійна ідентичність",
+          "Особистий бренд і позиціювання",
+          "Контент і комунікація в соціальних мережах",
+          "Самопрезентація та пітчинг ідей",
+          "Командна взаємодія та soft skills",
+          "Медіаграмотність і критичне мислення",
+          "Лідерство та розвиток soft skills для дітей і підлітків",
+          "Професійна ідентичність і зміна кар’єри",
         ],
       },
     ],
@@ -230,11 +244,11 @@ const serviceData = {
   },
 };
 
-function createServiceModal(data) {
+function createServiceModal(data, buttonText = "Записатися") {
   const blocks = data.blocks
     .map(
       (block) => `
-        <div class="service-modal__block">
+        <div class="service-modal__block${block.title === "Вартість" ? " service-modal__block--pricing" : ""}">
           <h4>${block.title}</h4>
           <ul>
             ${block.items.map((item) => `<li>${item}</li>`).join("")}
@@ -252,8 +266,9 @@ function createServiceModal(data) {
     ${blocks}
 
     <div class="service-modal__action">
-      <a class="button button--solid" href="#contacts" data-service-book>
-        <span>Записатися</span>
+      <a class="button button--solid"  href="https://t.me/Marina_Boyiko"
+          target="_blank" data-service-book>
+        <span>${buttonText}</span>
         <span class="arrow" aria-hidden="true"></span>
       </a>
     </div>
@@ -265,7 +280,7 @@ function openServiceModal(service) {
 
   if (!data) return;
 
-  serviceModalContent.innerHTML = createServiceModal(data);
+  serviceModalContent.innerHTML = createServiceModal(data, "Замовити");
   serviceModal.classList.add("is-open");
   serviceModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
@@ -475,36 +490,7 @@ const campData = {
           "Я не бачу різниці між тим, що важливо, і тим, що просто термінове",
         ],
       },
-      {
-        title: "Що будемо робити",
-        items: [
-          "Розберемо, як ми реагуємо на зміни і що заважає до них підготуватися",
-          "Проаналізуємо точку А і точку Б: де ви зараз, а де хочете бути, що вже є, а що варто змінити",
-          "Навчимось формулювати цілі, які справді мотивують і мають чіткі критерії досягнення",
-          "Складемо план — від року до кварталу, місяця й тижня, від загального до конкретного",
-          `Знайдемо особисті "поглиначі часу" і справжні причини прокрастинації`,
-          "Освоїмо робочі інструменти планування",
-          `Щотижня ставитимемо пріоритетні дії і звірятимемось у групі — без "загубилось десь між справами"`,
-        ],
-      },
-      {
-        title: "Що буде в результаті",
-        items: [
-          "Зрозумієш свою реальну реакцію на зміни і навчишся до них готуватися, а не чинити несвідомий опір",
-          "Матимеш чіткі цілі на рік, сформульовані так, щоб вони справді мотивували — а не лежали мертвим вантажем у нотатках",
-          "Отримаєш готовий план: від річного бачення до конкретних дій на найближчий тиждень",
-          "Знатимеш свої особисті поглиначі часу і матимеш інструменти з ними працювати",
-          "Навчишся відрізняти важливе від термінового і фокусуватися на пріоритетному",
-          "Вийдеш із програми не з одноразовим списком цілей, а з робочою системою планування",
-        ],
-      },
-      {
-        title: "Як влаштована робота",
-        items: [
-          "3 тижнів роботи в закритому ТГ каналі, мій фідбек + 2 тижні мого зворотного зв'язку",
-          `Завдання виходять щопонеділка, середи і п'ятниці — маленькими кроками, щоб точно встигати виконувати, а не накопичувати "хвости";`,
-        ],
-      },
+
       {
         title: "Як потрапити в групу",
         items: [
@@ -549,14 +535,7 @@ const campData = {
         items: [
           "3 тижнів роботи в закритому ТГ каналі, мій фідбек + 2 тижні мого зворотного зв'язку",
           `Завдання виходять щопонеділка, середи і п'ятниці — маленькими кроками, щоб точно встигати виконувати, а не накопичувати "хвости";`,
-        ],
-      },
-      {
-        title: "Як потрапити в групу",
-        items: [
-          "Якщо хочеш забронювати місце — пиши в дірект Інстаграму або Телеграм з позначкою «Хочу в групу планування»",
-          "ТГ — @Marina_Boyiko",
-          "https://www.instagram.com/maryna_boiko.coach/",
+          "Щодня я даватиму фідбек на домашні завдання",
         ],
       },
     ],
@@ -821,3 +800,57 @@ if (reviews) {
 
   updateReviews();
 }
+
+(function setupSeamlessMarquees() {
+  const tracks = document.querySelectorAll(
+    ".marquee__track, .footer-marquee__track",
+  );
+
+  const sources = [...tracks].map((track) => ({
+    track,
+    template: track.firstElementChild?.cloneNode(true),
+  }));
+
+  function fillTracks() {
+    sources.forEach(({ track, template }) => {
+      if (!template) return;
+
+      track.style.animation = "none";
+      track.replaceChildren();
+
+      const sequence = document.createElement("div");
+      sequence.style.cssText = "display:flex;align-items:center;flex-shrink:0;";
+
+      const first = template.cloneNode(true);
+      first.removeAttribute("aria-hidden");
+      sequence.append(first);
+      track.append(sequence);
+
+      const target = window.innerWidth + 100;
+
+      while (
+        sequence.getBoundingClientRect().width < target &&
+        sequence.children.length < 30
+      ) {
+        const repeat = template.cloneNode(true);
+        repeat.setAttribute("aria-hidden", "true");
+        sequence.append(repeat);
+      }
+
+      const duplicate = sequence.cloneNode(true);
+      duplicate.setAttribute("aria-hidden", "true");
+      track.append(duplicate);
+
+      track.style.animation = "";
+    });
+  }
+
+  fillTracks();
+
+  let resizeTimer;
+
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(fillTracks, 150);
+  });
+})();
